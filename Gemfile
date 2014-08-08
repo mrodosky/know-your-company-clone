@@ -42,5 +42,5 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'devise'
 gem 'nested_form'
-
+gem 'unicorn'
 
