@@ -39,9 +39,9 @@ class Guard
       generated_password = Devise.friendly_token.first(8)
       params[:users_attributes][key][:password] = generated_password
       params[:users_attributes][key][:role] = type
-      UserService.invite_user(params[:users_attributes][key], generated_password)
+      params[:users_attributes][key][:company_id] = company.id
+      UserService.add_and_invite_user(params[:users_attributes][key], generated_password, type)
     end
-    company.update_attributes(params)
   end
   
   private

@@ -1,6 +1,6 @@
 %p Yo Yo Yo (#{@employee.email})
-%p 
+%p
   Check it @
-  = link_to "here", edit_user_password_url
+  = link_to "here", new_user_session_url
 %p use your email (#{@employee.email}) as your login. your password is #{@generated_password}
-%p You will be prompted to change you password once you sign in.
+%p We recommend that you change your password once you sign in, for security reasons.
