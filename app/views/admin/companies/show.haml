@@ -1,0 +1,16 @@
+%h3 Welcome to #{@company.name}'s Page
+
+%p Current Owners:
+
+- @company.users.select { |u| u.is_owner? }.each do |u|
+  %li= u.email
+
+Add Owner for #{@company.name}:
+
+%p
+  = nested_form_for [:admin, @company] do |f|
+    = f.fields_for :users, @company.users.build do |owner_form|
+      = owner_form.label "Owner's Email Address"
+      = owner_form.text_field :email
+    = f.link_to_add "Add Owner", :users
+    = f.submit "Add Owner(s) and send email invites"

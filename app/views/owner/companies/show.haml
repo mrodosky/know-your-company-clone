@@ -1,0 +1,14 @@
+%p Welcome to Know Your Company (clone)
+
+- @company.employees.each do |u|
+  %li= u.email
+
+Add Employee for #{@company.name}:
+
+%p
+  = nested_form_for [:owner, @company] do |f|
+    = f.fields_for :users, @company.users.build do |employee_form|
+      = employee_form.label "Employee's Email Address"
+      = employee_form.text_field :email
+    = f.link_to_add "Add Employee", :users
+    = f.submit "Add Employee(s) and send email invites"

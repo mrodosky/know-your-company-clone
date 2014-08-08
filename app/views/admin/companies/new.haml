@@ -1,0 +1,6 @@
+Create new company here:
+
+= form_for [:admin, @company] do |f|
+  = f.label "Company Name"
+  = f.text_field :name
+  = f.submit "Create Company!"
