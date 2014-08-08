@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
   
   protected 
     def after_sign_in_path_for(resource)
-      admin_companies_path if resource.is_admin?
-      owner_company_path if resource.is_owner?
+      if resource.is_admin?
+        admin_companies_path 
+      elsif resource.is_owner?
+        owner_company_path
+      end
     end
   
 end

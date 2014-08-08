@@ -12,3 +12,6 @@ Add Employee for #{@company.name}:
       = employee_form.text_field :email
     = f.link_to_add "Add Employee", :users
     = f.submit "Add Employee(s) and send email invites"
+    
+    
+= link_to "Sign Out", destroy_user_session_path, :method => :delete
