@@ -1,5 +1,7 @@
 class Guard
-
+  
+  require 'user_service'
+  
   def initialize(user)
     @user = user
   end
@@ -25,16 +27,21 @@ class Guard
   end
   
   def add_owners_and_send_email(company, owner_params)
-    if admin?
-      owner_params[:users_attributes].each do |key, user_params|
-        generated_password = Devise.friendly_token.first(8)
-        owner_params[:users_attributes][key][:password] = generated_password
-        owner_params[:users_attributes][key][:role] = "owner"
-        user = User.new(owner_params[:users_attributes][key])
-        UserMailer.owner_welcome(user, generated_password).deliver if user.valid?
-      end
-      company.update_attributes(owner_params)
+    add_users_to_company(company, owner_params, :owner) if admin?
+  end
+  
+  def add_employees_and_send_email(employee_params)
+    add_users_to_company(fetch_company, employee_params, :employee) if owner?
+  end
+  
+  def add_users_to_company(company, params, type)
+    params[:users_attributes].keys.each do |key|
+      generated_password = Devise.friendly_token.first(8)
+      params[:users_attributes][key][:password] = generated_password
+      params[:users_attributes][key][:role] = type
+      UserService.invite_user(params[:users_attributes][key], generated_password)
     end
+    company.update_attributes(params)
   end
   
   private

@@ -6,7 +6,7 @@
 Add Employee for #{@company.name}:
 
 %p
-  = nested_form_for [:owner, @company] do |f|
+  = nested_form_for [:owner, @company], url: add_employee_owner_company_path do |f|
     = f.fields_for :users, @company.users.build do |employee_form|
       = employee_form.label "Employee's Email Address"
       = employee_form.text_field :email

@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   root 'static#home'
   
   namespace :admin do
-    resources :companies do
-      get 'add_owner'
-    end
+    resources :companies
   end
   
   namespace :owner do
-    resource :company
+    resource :company do
+      patch 'add_employee'
+    end
   end
 
   # Example of regular route:
