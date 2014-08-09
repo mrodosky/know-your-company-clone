@@ -4,13 +4,27 @@ class UserService
     UserMailer.send("#{type}_welcome", user, generated_password).deliver if user.valid?
   end
   
-  def self.send_work_details_email
+  def self.ask_for_work_details
     #every employee gets this email
     question_text = "What are you working on?"
     User.where(role: 'employee').each do |user|
       question = user.questions.create!(question: question_text)
       UserMailer.share_work_details(user, question).deliver
     end
+  end
+  
+  def self.send_work_deets_answers
+    employee_answers = {}
+    question_text = "What are you working on?"
+    company.employees.each do |employee|
+      employee_question = employee.questions.where(question: question_text).order('created_at DESC').first #same question will likely repeat itself
+      employee_answers[employee.email] = employee_question.answer
+    end
+    
+    company.employees.each do |employee|
+      UserMailer.send_work_deets_answers(employee, question_text, employee_answers)
+    end
+    
   end
   
   def self.send_serious_email(company)

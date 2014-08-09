@@ -45,4 +45,12 @@ class UserMailer < ActionMailer::Base
     mail(to: @owner.email, subject: "Here's what your employees said last week!")
   end
   
+  def send_work_deets_answers(employee, question_text, employee_answers)
+    @employee = employee
+    @question_text = question_text
+    @employee_answers = employee_answers
+    mail(to: @employee.email, subject: "Here's what your employees said last week!")
+  end
+  
+  
 end

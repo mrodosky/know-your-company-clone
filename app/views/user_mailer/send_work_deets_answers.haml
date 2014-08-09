@@ -1,0 +1,11 @@
+%p Hi #{@employee.email},
+
+%p Last week we asked everyone what they were working on
+
+%p Here's what they said:
+
+- employee_answers.each do |email, answer|
+  %div
+    %p= email
+    %p= answer
+  %br
