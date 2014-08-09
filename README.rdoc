@@ -4,10 +4,10 @@ This multi-tenant app is my attempt to replicate, on a very basic level, the fun
 
 The following links helped me come up with the architecture for the app:
 
-1) https://knowyourcompany.com
-2) https://www.linkedin.com/today/post/article/20130904121739-7374576-a-simple-tool-to-understand-your-company-better
-3) http://signalvnoise.com/posts/3540-building-know-your-company
-4) http://signalvnoise.com/posts/3764-our-favorite-recent-reads-on-the-web
+1. https://knowyourcompany.com
+2. https://www.linkedin.com/today/post/article/20130904121739-7374576-a-simple-tool-to-understand-your-company-better
+3. http://signalvnoise.com/posts/3540-building-know-your-company
+4. http://signalvnoise.com/posts/3764-our-favorite-recent-reads-on-the-web
 
 The app also lives at: http://knowyourcompany-clone.herokuapp.com
 
@@ -18,5 +18,5 @@ Contact me if you want to try it out. Feel free to fork and work on it as well.
 
 Some Caveats:
 
-1) Apart from the basic nature of the app, it is completely untested (of course I manually tested locally and on Heroku, but no automated tests are in place). You can consider this a spike that I've just gotten through over the past couple of days in my spare time. If I were to continue developing this app, I would write tests for everything I have so far, and then start to add/refactor
+1. Apart from the basic nature of the app, it is completely untested (of course I manually tested locally and on Heroku, but no automated tests are in place). You can consider this a spike that I've just gotten through over the past couple of days in my spare time. If I were to continue developing this app, I would write tests for everything I have so far, and then start to add/refactor
 
