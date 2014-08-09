@@ -1,7 +1,8 @@
 %p Welcome to Know Your Company (clone)
 
-- @company.employees.each do |u|
-  %li= u.email
+- @company.employees.each do |e|
+  %li
+    = link_to e.email, owner_show_employee_questions_path(e)
 
 Add Employee for #{@company.name}:
 

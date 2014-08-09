@@ -9,6 +9,11 @@ class Owner::CompaniesController < ApplicationController
     redirect_to owner_company_path
   end
   
+  def show_employee_questions
+    @employee = @guard.fetch_employee(params[:employee_id])
+    @questions = @employee.questions
+  end
+  
   private
     def employee_params
       params.require(:company).permit(users_attributes: [:id, :email, :_destroy])

@@ -1,0 +1,6 @@
+%h4 Here are your questions and answers so far:
+- @questions.each do |q|
+  %h5= q.question
+  %p= q.answer
+  
+= render '/sign_out_link'

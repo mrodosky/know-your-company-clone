@@ -1,0 +1,6 @@
+= form_for [:employee, @question] do |f|
+  = f.label "Question Text:"
+  = @question.question
+  = f.label "Your Answer"
+  = f.text_field :answer
+  = f.submit "Answer Question!"

@@ -8,11 +8,20 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :companies
+    resources :questions
+    get "home"
   end
   
   namespace :owner do
     resource :company do
       patch 'add_employee'
+    end
+    get 'show_employee_questions/:employee_id' => 'companies#show_employee_questions', as: :show_employee_questions
+  end
+  
+  namespace :employee do
+    resources :questions do
+      get "answer_question"
     end
   end
 

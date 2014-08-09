@@ -1,0 +1,24 @@
+%h4 Serious Questions
+
+- @questions.select {|q| q.question_type == "serious"}.each do |q|
+  %li= q.question
+
+%h4 Fun Questions
+
+- @questions.select {|q| q.question_type == "fun"}.each do |q|
+  %li= q.question
+
+
+Add Question to Database:
+
+%p
+  = form_for [:admin, Question.new] do |f|
+    = f.label "Question Text:"
+    = f.text_field :question
+    = f.label "Question Type (determines when weekly email will be sent)"
+    = f.select :question_type,  [['Serious', :serious], ['Fun', :fun]]
+    = f.submit "Create Question!"
+    
+    
+= link_to "Sign Out", destroy_user_session_path, :method => :delete
+
