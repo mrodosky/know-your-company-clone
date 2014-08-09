@@ -1,28 +1,22 @@
-== README
+Know Your Company Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This multi-tenant app is my attempt to replicate, on a very basic level, the functionality of the Know Your Company system (knowyourcompany.com). I have only focussed on the backend and completely ignored the front-end and UI for now. That being said, my Rails app does generate a very very basic front-end (forms for adding users, adding and answering questions, simple text-based emails etc with no styles whatsoever).
 
-Things you may want to cover:
+The following links helped me come up with the architecture for the app:
 
-* Ruby version
+1) https://knowyourcompany.com
+2) https://www.linkedin.com/today/post/article/20130904121739-7374576-a-simple-tool-to-understand-your-company-better
+3) http://signalvnoise.com/posts/3540-building-know-your-company
+4) http://signalvnoise.com/posts/3764-our-favorite-recent-reads-on-the-web
 
-* System dependencies
+The app also lives at: http://knowyourcompany-clone.herokuapp.com
 
-* Configuration
+Contact me if you want to try it out. Feel free to fork and work on it as well.
 
-* Database creation
+* Ruby version: 2.1.0
+* Rails verion: 4.1.4
 
-* Database initialization
+Some Caveats:
 
-* How to run the test suite
+1) Apart from the basic nature of the app, it is completely untested (of course I manually tested locally and on Heroku, but no automated tests are in place). You can consider this a spike that I've just gotten through over the past couple of days in my spare time. If I were to continue developing this app, I would write tests for everything I have so far, and then start to add/refactor
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
