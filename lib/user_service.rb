@@ -13,7 +13,7 @@ class UserService
     end
   end
   
-  def self.send_work_deets_answers
+  def self.send_work_deets_answers(company)
     employee_answers = {}
     question_text = "What are you working on?"
     company.employees.each do |employee|
