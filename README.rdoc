@@ -12,6 +12,7 @@ This is what the app does, so far:
 3. Allows company owners to log in and add employee accounts
 4. When either owners or employees are added, they receive an email with their login details.
 5. In the UserService class, I have a few methods to facilitate the weekly email system as described in link 2 below and correspond with the three outcomes specified at knowyourcompany.com. For example, every Friday all employees should get an email asking them to do a write-up on what they've been working on. The next Monday, the same employees should get an email with everyone's answers (something like shown on link 2 and link 4 below)
+6. I have made the assumption that after a full cycle of questions has been exhausted for a given company, it will start to repeat itself. I think this makes sense because you'd never want the answer to a question only once. You'd want to ask a given question maybe once a month?
 
 
 The following links helped me come up with the architecture for the app:
