@@ -1,0 +1,11 @@
+%p Hey #{@employee.email},
+
+%p Up for sharing something about yourself with the rest of the company?
+
+%p If so, how about: #{@question.question}
+
+%p= link_to "Click here to tell everyone", employee_question_answer_question(@question)
+
+On Monday, you and everyone will get an email with everyone's responses (including yours).
+
+Have a great weekend!

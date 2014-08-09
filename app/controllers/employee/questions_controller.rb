@@ -4,9 +4,7 @@ class Employee::QuestionsController < ApplicationController
   end
   
   def answer_question
-    db_question = @guard.fetch_question(params[:question_id])
-    #duplicate questions are allowed in case user is asked the same question after a time gap
-    @question = @guard.create_question({question: db_question.question, user_id: @guard.user.id})
+    @question = @guard.fetch_question(params[:question_id])
   end
   
   def update

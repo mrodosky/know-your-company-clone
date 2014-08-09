@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   
   namespace :employee do
     resources :questions do
-      get "answer_question"
+      get 'answer_question'
     end
   end
 
