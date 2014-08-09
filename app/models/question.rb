@@ -24,7 +24,7 @@ class Question < ActiveRecord::Base
     end
   end
   
-  def previous_fun_question(question_id)
+  def self.previous_fun_question(question_id)
     begin
       where('user_id IS NULL').where(question_type: 'fun').where('id < ?', question_id).order("id DESC").first
     rescue
@@ -32,7 +32,7 @@ class Question < ActiveRecord::Base
     end
   end
 
-  def previous_serious_question(question_id)
+  def self.previous_serious_question(question_id)
     begin
       where('user_id IS NULL').where(question_type: 'serious').where('id < ?', question_id).order("id DESC").first
     rescue

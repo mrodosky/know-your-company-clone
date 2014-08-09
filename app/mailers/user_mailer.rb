@@ -49,7 +49,7 @@ class UserMailer < ActionMailer::Base
     @employee = employee
     @question_text = question_text
     @employee_answers = employee_answers
-    mail(to: @employee.email, subject: "Here's what your employees said last week!")
+    mail(to: @employee.email, subject: "Here's what your colleagues are working on")
   end
   
   

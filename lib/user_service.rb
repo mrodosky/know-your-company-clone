@@ -18,9 +18,9 @@ class UserService
     question_text = "What are you working on?"
     company.employees.each do |employee|
       employee_question = employee.questions.where(question: question_text).order('created_at DESC').first #same question will likely repeat itself
-      employee_answers[employee.email] = employee_question.answer
+      employee_answers[employee.email] = employee_question.answer if employee_question
     end
-    
+    puts employee_answers
     company.employees.each do |employee|
       UserMailer.send_work_deets_answers(employee, question_text, employee_answers)
     end
