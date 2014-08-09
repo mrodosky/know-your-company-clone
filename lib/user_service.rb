@@ -63,11 +63,11 @@ class UserService
     employee_answers = {}
     company.employees.each do |employee|
       employee_question = employee.questions.where(question: question.question).order('created_at DESC').first #same question will likely repeat itself
-      employee_answers[employee.email] = employee_question.answer
+      employee_answers[employee.email] = employee_question.answer if employee_question
     end
     
     company.employees.each do |employee|
-      UserMailer.send_fun_answers(employee, question, employee_answers)
+      UserMailer.send_fun_answers(employee, question, employee_answers).deliver
     end
     
   end
@@ -77,11 +77,11 @@ class UserService
     employee_answers = {}
     company.employees.each do |employee|
       employee_question = employee.questions.where(question: question.question).order('created_at DESC').first #same question will likely repeat itself
-      employee_answers[employee.email] = employee_question.answer
+      employee_answers[employee.email] = employee_question.answer if employee_question
     end
     
     company.owners.each do |owner|
-      UserMailer.send_serious_answers(owner, question, employee_answers)
+      UserMailer.send_serious_answers(owner, question, employee_answers).deliver
     end
     
   end
